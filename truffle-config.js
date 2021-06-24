@@ -1,3 +1,4 @@
+// using from https://github.com/dappuniversity/dbank/tree/starter_kit
 require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
@@ -60,7 +61,7 @@ module.exports = {
   contracts_build_directory: './src/abis/',
   compilers: {
     solc: {
-      version: ">=0.6.0 <0.8.0",
+      version: "^0.7.5",
       optimizer: {
         enabled: true,
         runs: 200

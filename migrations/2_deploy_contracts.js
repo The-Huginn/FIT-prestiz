@@ -1,5 +1,5 @@
 var HelloWorld = artifacts.require("HelloWorld");
 
-module.exports = function(deplyer) {
+module.exports = async function(deployer) {
     deployer.deploy(HelloWorld, "hello");
 }
