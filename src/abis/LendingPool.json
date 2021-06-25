@@ -1,28 +1,28 @@
 {
   "contractName": "LendingPool",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol\":\"LendingPool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol\":{\"keccak256\":\"0xaa3780880adc1b9d179fac07c1abe6bc701316f535f62b7e2f83a7067804db98\",\"urls\":[\"bzz-raw://41091fad665046673b6db64bf652650a2b8348100cdbd1107b8cdf9d82b111c2\",\"dweb:/ipfs/QmVAEohMF4jyui1o2Jf8hK9qNU8Ati685FTf7pvnafdgbF\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207d9a3db9e86f6bdb293811bcb07f8718c367e659f07aa826dcbd425d7d4bdc1764736f6c63430007060033",
-  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207d9a3db9e86f6bdb293811bcb07f8718c367e659f07aa826dcbd425d7d4bdc1764736f6c63430007060033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol\":\"LendingPool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol\":{\"keccak256\":\"0x0e0a75064c5a7ef5c2461583e97e76bbc56e058709202860fe7293a9aee7b537\",\"urls\":[\"bzz-raw://bb8b28fb014fce050e662d80993d97b38091b7684ddd692b8fe8a9efe9d9259c\",\"dweb:/ipfs/QmS5tzhCST6dBNQijbGpjznF5JPXewNiCpFwSikDSAQxLm\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220c7a5a007ff606f47ff5cc66c5bff27d64e7603b9e9d8a82fa264f17db00c325664736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220c7a5a007ff606f47ff5cc66c5bff27d64e7603b9e9d8a82fa264f17db00c325664736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "25:29:1:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "25:29:1:-:0;;;;;",
-  "source": "pragma solidity ^0.7.5;\n\ncontract LendingPool {\n    \n}",
+  "sourceMap": "25:24:2:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "25:24:2:-:0;;;;;",
+  "source": "pragma solidity ^0.7.5;\n\ncontract LendingPool {\n}",
   "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol",
   "ast": {
     "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol",
     "exportedSymbols": {
       "LendingPool": [
-        126
+        165
       ]
     },
-    "id": 127,
+    "id": 166,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 125,
+        "id": 164,
         "literals": [
           "solidity",
           "^",
@@ -30,7 +30,7 @@
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:2"
       },
       {
         "abstract": false,
@@ -38,25 +38,25 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 126,
+        "id": 165,
         "linearizedBaseContracts": [
-          126
+          165
         ],
         "name": "LendingPool",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 127,
-        "src": "25:29:1"
+        "scope": 166,
+        "src": "25:24:2"
       }
     ],
-    "src": "0:54:1"
+    "src": "0:49:2"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/LendingPool.sol",
       "exportedSymbols": {
         "LendingPool": [
-          126
+          165
         ]
       }
     },
@@ -70,9 +70,9 @@
             ".5"
           ]
         },
-        "id": 125,
+        "id": 164,
         "name": "PragmaDirective",
-        "src": "0:23:1"
+        "src": "0:23:2"
       },
       {
         "attributes": {
@@ -86,22 +86,22 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            126
+            165
           ],
           "name": "LendingPool",
           "nodes": [
             null
           ],
-          "scope": 127
+          "scope": 166
         },
-        "id": 126,
+        "id": 165,
         "name": "ContractDefinition",
-        "src": "25:29:1"
+        "src": "25:24:2"
       }
     ],
-    "id": 127,
+    "id": 166,
     "name": "SourceUnit",
-    "src": "0:54:1"
+    "src": "0:49:2"
   },
   "compiler": {
     "name": "solc",
@@ -109,7 +109,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-24T14:06:40.588Z",
+  "updatedAt": "2021-06-25T12:30:17.845Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

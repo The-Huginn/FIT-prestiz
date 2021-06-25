@@ -1,18 +1,16 @@
 pragma solidity ^0.7.5;
 
-import {Utils} from './Utils.sol';
+import {Interest} from './Utils.sol';
 
 interface ILendingPool {
 
     /**
     * @dev Emitted on deposit
-    * @param collateral The address of the underlying asset
-    * @param asset The address of the second asset to identify the pool pair
+    * @param asset The address of the deposited asset
     * @param user The address the deposit was initiated by
     * @param amount The amount deposited
     */
     event Deposit(
-        address indexed collateral,
         address indexed asset,
         address user,
         uint amount
@@ -20,13 +18,11 @@ interface ILendingPool {
 
     /**
     * @dev Emitted on withdraw
-    * @param collateral The address of the underlying asset
-    * @param asset The address of the second asset to identify the pool pair
+    * @param asset The address of the deposited asset
     * @param user The address withdrawing collateral
     * @param amount The amount to be withdrawn
     */
     event Withdraw(
-        address indexed collateral,
         address indexed asset,
         address user,
         uint amount
@@ -46,7 +42,7 @@ interface ILendingPool {
         address indexed asset,
         address user,
         uint amount,
-        Utils.InterestMode interestMode,
+        Interest.InterestMode interestMode,
         uint interestRate
     );
 
@@ -82,20 +78,17 @@ interface ILendingPool {
 
     /**
     * @dev Deposits the amount of underlying asset
-    * @param collateral The address of underlying asset
-    * @param asset The address of the second asset to identify the pool pair
+    * @param asset The address of the deposited asset
     * @param amount The amount to be deposited
     */
     function deposit(
-        address collateral,
         address asset,
         uint amount
     ) external;
 
     /**
     * @dev Withdraws the amount of underlying asset
-    * @param collateral The address of underlying asset
-    * @param asset The address of the second asset to identify the pool pair
+    * @param asset The address of the deposited asset
     * @param amount The amount to be withdrawn
     * @return The final amount to be withdrawn
     */
@@ -117,7 +110,7 @@ interface ILendingPool {
         address collateral,
         address asset,
         uint amount,
-        Utils.InterestMode interestMode
+        Interest.InterestMode interestMode
     ) external returns(bool);
 
     /**

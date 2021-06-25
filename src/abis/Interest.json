@@ -1,0 +1,293 @@
+{
+  "contractName": "Interest",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol\":\"Interest\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol\":{\"keccak256\":\"0x8df6ef481054385921f7c31a69c3573f197ff6fedb33a80c3f75b2c4c247313b\",\"urls\":[\"bzz-raw://b0dd464aae9d165e24685b426b9b807a6c4826f4f084f436f784484f63edecb5\",\"dweb:/ipfs/QmXuUc5gCSeKm2VHy4BZJtuXCDm3QUxR334n5bgKhUMpun\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220e99e18dc8899d0c7ffe37fe08e492ff2e640e6ad47bb11f97e844775a2636bfc64736f6c63430007060033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220e99e18dc8899d0c7ffe37fe08e492ff2e640e6ad47bb11f97e844775a2636bfc64736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "103:1591:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "103:1591:3:-:0;;;;;;;;",
+  "source": "pragma solidity ^0.7.5;\n\nlibrary Transaction {\n\n    enum TransactionType {NONE, DEPOSIT, WITHDRAW}\n\n}\n\nlibrary Interest {\n\n    enum InterestMode {NONE, FIXED, VARIABLE}\n\n    // struct BalanceSnap {\n    //     uint _timestamp;        // since last interaction\n    //     address _token;         // smart contract address of the token\n    //     uint _borrowAmount;     // initial borrow\n    //     uint _accruedInterest;  // total accrued interest\n    //     uint _interest;         // interest, in variable mode should be recalculated\n    //     InterestMode _interestMode;\n    // }\n\n    // /**\n    // * @dev Calculates the increse in interest since last provided snap\n    // * @param _snap The snap to calculate interest since\n    // * @return The previous total debt, the current total dept, accrued interest since last interact\n    // */\n    // function balanceIncrease(BalanceSnap storage _snap) \n    //     internal\n    //     view\n    //     returns(\n    //         uint,\n    //         uint,\n    //         uint\n    //     )\n    // {\n    //     uint interest = _snap._interestMode == InterestMode.VARIABLE ? calcVariableInterest() : _snap._interest;\n    //     uint accruedInterest = ( block.timestamp - _snap._timestamp ) * interest;\n\n    //     return(\n    //         _snap._borrowAmount + _snap._accruedInterest,\n    //         _snap._borrowAmount + _snap._accruedInterest + accruedInterest,\n    //         accruedInterest\n    //     );\n    // }\n\n    // /**\n    // * @dev Calculates current variable APY for borrow\n    // */\n    // function calcVariableInterest()\n    //     internal\n    //     view\n    //     returns(uint)\n    // {\n    //     // TODO\n    //     return 1;\n    // }\n}",
+  "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+  "ast": {
+    "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+    "exportedSymbols": {
+      "Interest": [
+        457
+      ],
+      "Transaction": [
+        452
+      ]
+    },
+    "id": 458,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 447,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 452,
+        "linearizedBaseContracts": [
+          452
+        ],
+        "name": "Transaction",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Transaction.TransactionType",
+            "id": 451,
+            "members": [
+              {
+                "id": 448,
+                "name": "NONE",
+                "nodeType": "EnumValue",
+                "src": "74:4:3"
+              },
+              {
+                "id": 449,
+                "name": "DEPOSIT",
+                "nodeType": "EnumValue",
+                "src": "80:7:3"
+              },
+              {
+                "id": 450,
+                "name": "WITHDRAW",
+                "nodeType": "EnumValue",
+                "src": "89:8:3"
+              }
+            ],
+            "name": "TransactionType",
+            "nodeType": "EnumDefinition",
+            "src": "52:46:3"
+          }
+        ],
+        "scope": 458,
+        "src": "25:76:3"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 457,
+        "linearizedBaseContracts": [
+          457
+        ],
+        "name": "Interest",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Interest.InterestMode",
+            "id": 456,
+            "members": [
+              {
+                "id": 453,
+                "name": "NONE",
+                "nodeType": "EnumValue",
+                "src": "146:4:3"
+              },
+              {
+                "id": 454,
+                "name": "FIXED",
+                "nodeType": "EnumValue",
+                "src": "152:5:3"
+              },
+              {
+                "id": 455,
+                "name": "VARIABLE",
+                "nodeType": "EnumValue",
+                "src": "159:8:3"
+              }
+            ],
+            "name": "InterestMode",
+            "nodeType": "EnumDefinition",
+            "src": "127:41:3"
+          }
+        ],
+        "scope": 458,
+        "src": "103:1591:3"
+      }
+    ],
+    "src": "0:1694:3"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+      "exportedSymbols": {
+        "Interest": [
+          457
+        ],
+        "Transaction": [
+          452
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".5"
+          ]
+        },
+        "id": 447,
+        "name": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            452
+          ],
+          "name": "Transaction",
+          "scope": 458
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Transaction.TransactionType",
+              "name": "TransactionType"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "NONE"
+                },
+                "id": 448,
+                "name": "EnumValue",
+                "src": "74:4:3"
+              },
+              {
+                "attributes": {
+                  "name": "DEPOSIT"
+                },
+                "id": 449,
+                "name": "EnumValue",
+                "src": "80:7:3"
+              },
+              {
+                "attributes": {
+                  "name": "WITHDRAW"
+                },
+                "id": 450,
+                "name": "EnumValue",
+                "src": "89:8:3"
+              }
+            ],
+            "id": 451,
+            "name": "EnumDefinition",
+            "src": "52:46:3"
+          }
+        ],
+        "id": 452,
+        "name": "ContractDefinition",
+        "src": "25:76:3"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            457
+          ],
+          "name": "Interest",
+          "scope": 458
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Interest.InterestMode",
+              "name": "InterestMode"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "NONE"
+                },
+                "id": 453,
+                "name": "EnumValue",
+                "src": "146:4:3"
+              },
+              {
+                "attributes": {
+                  "name": "FIXED"
+                },
+                "id": 454,
+                "name": "EnumValue",
+                "src": "152:5:3"
+              },
+              {
+                "attributes": {
+                  "name": "VARIABLE"
+                },
+                "id": 455,
+                "name": "EnumValue",
+                "src": "159:8:3"
+              }
+            ],
+            "id": 456,
+            "name": "EnumDefinition",
+            "src": "127:41:3"
+          }
+        ],
+        "id": 457,
+        "name": "ContractDefinition",
+        "src": "103:1591:3"
+      }
+    ],
+    "id": 458,
+    "name": "SourceUnit",
+    "src": "0:1694:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-06-25T13:33:50.084Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
