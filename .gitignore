@@ -2,7 +2,7 @@
 
 #git
 /hooks
-/description
+description
 
 # dependencies
 /node_modules
