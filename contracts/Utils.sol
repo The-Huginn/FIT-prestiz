@@ -1,14 +1,21 @@
 pragma solidity ^0.7.5;
 
+library DataTypes {
+    
+    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY}
+
+    enum InterestMode {NONE, FIXED, VARIABLE}
+
+    enum BalanceType {NONE, DEFAULT, LENDING}
+}
+
 library Transaction {
 
-    enum TransactionType {NONE, DEPOSIT, WITHDRAW}
+    
 
 }
 
 library Interest {
-
-    enum InterestMode {NONE, FIXED, VARIABLE}
 
     // struct BalanceSnap {
     //     uint _timestamp;        // since last interaction
@@ -52,6 +59,6 @@ library Interest {
     //     returns(uint)
     // {
     //     // TODO
-    //     return 1;
+    //     return 0;
     // }
 }
