@@ -2,17 +2,11 @@ pragma solidity ^0.7.5;
 
 library DataTypes {
     
-    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY}
+    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, STAKE, UNSTAKE, STAKE_REWARD, SLASH}
 
     enum InterestMode {NONE, FIXED, VARIABLE}
 
     enum BalanceType {NONE, DEFAULT, LENDING}
-}
-
-library Transaction {
-
-    
-
 }
 
 library Interest {
