@@ -1,0 +1,375 @@
+{
+  "contractName": "ITransferHook",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "onTransfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"onTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol\":\"ITransferHook\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol\":{\"keccak256\":\"0xf34d5d2dc140e8ecb75a7c5360873f6f823ac6fe431d2bcc0ec31ccdfd9d5b08\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://55d678e027ce969f96e85c2864b9075b5542f93f4276e7643bdd9186b24f6d12\",\"dweb:/ipfs/QmRM6Mn8gdNVXzfGq628EBaJ6BMhUpx182H8BFCAD4WvNL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.7.5;\n\ninterface ITransferHook {\n    function onTransfer(address from, address to, uint256 amount) external;\n}",
+  "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
+  "ast": {
+    "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
+    "exportedSymbols": {
+      "ITransferHook": [
+        307
+      ]
+    },
+    "id": 308,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 297,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".5"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:23:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 307,
+        "linearizedBaseContracts": [
+          307
+        ],
+        "name": "ITransferHook",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "4a393149",
+            "id": 306,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onTransfer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 304,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 299,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 306,
+                  "src": "112:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 298,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "112:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 301,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 306,
+                  "src": "126:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 300,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 303,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 306,
+                  "src": "138:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 302,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "138:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "111:42:4"
+            },
+            "returnParameters": {
+              "id": 305,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "162:0:4"
+            },
+            "scope": 307,
+            "src": "92:71:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 308,
+        "src": "62:103:4"
+      }
+    ],
+    "src": "37:128:4"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
+      "exportedSymbols": {
+        "ITransferHook": [
+          307
+        ]
+      },
+      "license": "agpl-3.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".5"
+          ]
+        },
+        "id": 297,
+        "name": "PragmaDirective",
+        "src": "37:23:4"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            307
+          ],
+          "name": "ITransferHook",
+          "scope": 308
+        },
+        "children": [
+          {
+            "attributes": {
+              "functionSelector": "4a393149",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "onTransfer",
+              "scope": 307,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "from",
+                      "scope": 306,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 298,
+                        "name": "ElementaryTypeName",
+                        "src": "112:7:4"
+                      }
+                    ],
+                    "id": 299,
+                    "name": "VariableDeclaration",
+                    "src": "112:12:4"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "to",
+                      "scope": 306,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 300,
+                        "name": "ElementaryTypeName",
+                        "src": "126:7:4"
+                      }
+                    ],
+                    "id": 301,
+                    "name": "VariableDeclaration",
+                    "src": "126:10:4"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "scope": 306,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 302,
+                        "name": "ElementaryTypeName",
+                        "src": "138:7:4"
+                      }
+                    ],
+                    "id": 303,
+                    "name": "VariableDeclaration",
+                    "src": "138:14:4"
+                  }
+                ],
+                "id": 304,
+                "name": "ParameterList",
+                "src": "111:42:4"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 305,
+                "name": "ParameterList",
+                "src": "162:0:4"
+              }
+            ],
+            "id": 306,
+            "name": "FunctionDefinition",
+            "src": "92:71:4"
+          }
+        ],
+        "id": 307,
+        "name": "ContractDefinition",
+        "src": "62:103:4"
+      }
+    ],
+    "id": 308,
+    "name": "SourceUnit",
+    "src": "37:128:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-04T10:59:09.836Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
