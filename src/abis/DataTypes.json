@@ -1,31 +1,48 @@
 {
   "contractName": "DataTypes",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol\":\"DataTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol\":{\"keccak256\":\"0xf87ca66b03d7ceb478be7a0a18c574e873d4f43138de8cf3fa9bb0d413ff0738\",\"urls\":[\"bzz-raw://711d234d46c442fe5a347ea187b7fe9ec7d705985e87c1de4d892b68196d66ee\",\"dweb:/ipfs/QmNn2gkeTK8Bd2pUij63q4uKE3muwc6mu939V5XhmRwucM\"]}},\"version\":1}",
-  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212203f9c712a6f5ffd5a316a72c213493dd61333a0247ca41cfe5b45a2515d4ba3ca64736f6c63430007060033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212203f9c712a6f5ffd5a316a72c213493dd61333a0247ca41cfe5b45a2515d4ba3ca64736f6c63430007060033",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "secondsPerYear",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"secondsPerYear\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Rastislav Budinsky\",\"details\":\"library declaring all used enums at the moment in the DataTypes library\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol\":\"DataTypes\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol\":{\"keccak256\":\"0x2128edc3bf84c0a8a14436d105d84201d3056693fee9d6b3c4555f83686d6d6c\",\"urls\":[\"bzz-raw://88f0d183c8bbef28dd8925a511c8f42e8153dcd41909a6f57acc8601b51147db\",\"dweb:/ipfs/QmQQsFdD7JmutroknKnDyKoZk4WM8cmso5ifR7NqCf3W1e\"]}},\"version\":1}",
+  "bytecode": "0x6092610024600b82828239805160001a607314601757fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063252e40b1146038575b600080fd5b603e6054565b6040518082815260200191505060405180910390f35b6301e133808156fea2646970667358221220e057819dbcf3aa804304bb29d086c3e18f04c4d097edcedadb1ea7a76550198964736f6c63430007060033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361060335760003560e01c8063252e40b1146038575b600080fd5b603e6054565b6040518082815260200191505060405180910390f35b6301e133808156fea2646970667358221220e057819dbcf3aa804304bb29d086c3e18f04c4d097edcedadb1ea7a76550198964736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "25:223:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "25:223:5:-:0;;;;;;;;",
-  "source": "pragma solidity ^0.7.5;\n\nlibrary DataTypes {\n    \n    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, STAKE, UNSTAKE, STAKE_REWARD, SLASH}\n\n    enum InterestMode {NONE, FIXED, VARIABLE}\n\n    enum BalanceType {NONE, DEFAULT, LENDING}\n}\n\nlibrary Interest {\n\n    // struct BalanceSnap {\n    //     uint _timestamp;        // since last interaction\n    //     address _token;         // smart contract address of the token\n    //     uint _borrowAmount;     // initial borrow\n    //     uint _accruedInterest;  // total accrued interest\n    //     uint _interest;         // interest, in variable mode should be recalculated\n    //     InterestMode _interestMode;\n    // }\n\n    // /**\n    // * @dev Calculates the increse in interest since last provided snap\n    // * @param _snap The snap to calculate interest since\n    // * @return The previous total debt, the current total dept, accrued interest since last interact\n    // */\n    // function balanceIncrease(BalanceSnap storage _snap) \n    //     internal\n    //     view\n    //     returns(\n    //         uint,\n    //         uint,\n    //         uint\n    //     )\n    // {\n    //     uint interest = _snap._interestMode == InterestMode.VARIABLE ? calcVariableInterest() : _snap._interest;\n    //     uint accruedInterest = ( block.timestamp - _snap._timestamp ) * interest;\n\n    //     return(\n    //         _snap._borrowAmount + _snap._accruedInterest,\n    //         _snap._borrowAmount + _snap._accruedInterest + accruedInterest,\n    //         accruedInterest\n    //     );\n    // }\n\n    // /**\n    // * @dev Calculates current variable APY for borrow\n    // */\n    // function calcVariableInterest()\n    //     internal\n    //     view\n    //     returns(uint)\n    // {\n    //     // TODO\n    //     return 0;\n    // }\n}",
-  "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+  "sourceMap": "140:360:7:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "140:360:7:-:0;;;;;;;;;;;;;;;;;;;;;;;;451:46;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;489:8;451:46;:::o",
+  "source": "pragma solidity ^0.7.5;\n\n/**\n* @author Rastislav Budinsky\n* @dev library declaring all used enums at the moment in the DataTypes library\n*/\nlibrary DataTypes {\n    \n    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, LIQUIDATION, STAKE, UNSTAKE, STAKE_REWARD, SLASH}\n\n    enum InterestMode {NONE, FIXED, VARIABLE}\n\n    enum BalanceType {NONE, DEFAULT, LENDING}\n\n    enum LiquidationType {NONE, BORROWABLE, UNBORROWABLE, LIQUIDATED}\n\n    uint public constant secondsPerYear = 31536000;\n}\n\n/**\n* @author Rastislav Budinsky\n* @dev utility library for calculating liquidations\n*/\nlibrary Liquidations {\n\n    /**\n    * @notice checks, if the liquidation treshold is exceeded\n    * @param asset the address of the borrowed asset\n    * @param amount1 the amount of the borrowed asset\n    * @param collateral the address of the underlying asset\n    * @param amount2 the amount of collateral\n    * @param liquidation the treshold before liquidation of this pair\n    * @param borrow the treshold before the borrow is denied\n    * @param decimals the decimal precision of liquidation and borrow tresholds\n    * @return LiquidationType   BORROWABLE: if the user is allowed to borrow\n    *                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated\n    *                           LIQUIDATED: the user should get liquidated\n    */\n    function checkLiquidated(\n        address asset,\n        uint amount1,\n        address collateral,\n        uint amount2,\n        uint liquidation,\n        uint borrow,\n        uint decimals\n    ) public view returns(DataTypes.LiquidationType) {\n\n        return DataTypes.LiquidationType.BORROWABLE;\n    }\n\n    /**\n    * @notice calculates the liquidation price\n    * @param asset the address of the borrowed asset\n    * @param amount1 the amount of the borrowed asset\n    * @param collateral the address of the underlying asset\n    * @param amount2 the amount of the underlying asset\n    * @param liquidation the treshold before liquidation of this pair\n    * @param decimals the decimal precision of liquidation\n    * @return returns the price at which the underlying asset if liquidated\n    */\n    function getLiquidationPrice(\n        address asset,\n        uint amount1,\n        address collateral,\n        uint amount2,\n        uint liquidation,\n        uint decimals\n    ) public view returns(uint) {\n\n        return 0;\n    }\n}\n\n/**\n* @author Rastislav Budinsky\n* @dev utility library for selecting interests*/\nlibrary Interests {\n\n    /**\n    * @dev selects the proper interest rate\n    * @param balanceType the type of balance\n    * @param interestMode the interest mode selected\n    * @param variableDeposit the variable deposit interest rate\n    * @param fixedDeposit the fixed deposit interest rate\n    * @param variableBorrow the variable borrow interest rate\n    * @param fixedBorrow the fixed borrow interest rate\n    * @return returns the interest rate accordingly\n    */\n    function selectInterestRate(\n        DataTypes.BalanceType balanceType,\n        DataTypes.InterestMode interestMode,\n        uint variableDeposit,\n        uint fixedDeposit,\n        uint variableBorrow,\n        uint fixedBorrow \n    ) internal view returns(uint) {\n        if (balanceType == DataTypes.BalanceType.LENDING)\n        {\n            return interestMode == DataTypes.InterestMode.FIXED ? fixedBorrow : variableBorrow;\n        }\n\n        return interestMode == DataTypes.InterestMode.FIXED ? fixedDeposit : variableDeposit;\n    }\n\n    // struct BalanceSnap {\n    //     uint _timestamp;        // since last interaction\n    //     address _token;         // smart contract address of the token\n    //     uint _borrowAmount;     // initial borrow\n    //     uint _accruedInterest;  // total accrued interest\n    //     uint _interest;         // interest, in variable mode should be recalculated\n    //     InterestMode _interestMode;\n    // }\n\n    // /**\n    // * @dev Calculates the increse in interest since last provided snap\n    // * @param _snap The snap to calculate interest since\n    // * @return The previous total debt, the current total dept, accrued interest since last interact\n    // */\n    // function balanceIncrease(BalanceSnap storage _snap) \n    //     internal\n    //     view\n    //     returns(\n    //         uint,\n    //         uint,\n    //         uint\n    //     )\n    // {\n    //     uint interest = _snap._interestMode == InterestMode.VARIABLE ? calcVariableInterest() : _snap._interest;\n    //     uint accruedInterest = ( block.timestamp - _snap._timestamp ) * interest;\n\n    //     return(\n    //         _snap._borrowAmount + _snap._accruedInterest,\n    //         _snap._borrowAmount + _snap._accruedInterest + accruedInterest,\n    //         accruedInterest\n    //     );\n    // }\n\n    // /**\n    // * @dev Calculates current variable APY for borrow\n    // */\n    // function calcVariableInterest()\n    //     internal\n    //     view\n    //     returns(uint)\n    // {\n    //     // TODO\n    //     return 0;\n    // }\n}",
+  "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol",
   "ast": {
-    "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+    "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol",
     "exportedSymbols": {
       "DataTypes": [
-        1359
+        2603
       ],
-      "Interest": [
-        1360
+      "Interests": [
+        2697
+      ],
+      "Liquidations": [
+        2651
       ]
     },
-    "id": 1361,
+    "id": 2698,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1340,
+        "id": 2574,
         "literals": [
           "solidity",
           "^",
@@ -33,170 +50,1372 @@
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:7"
       },
       {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "library",
+        "documentation": {
+          "id": 2575,
+          "nodeType": "StructuredDocumentation",
+          "src": "25:114:7",
+          "text": " @author Rastislav Budinsky\n @dev library declaring all used enums at the moment in the DataTypes library"
+        },
         "fullyImplemented": true,
-        "id": 1359,
+        "id": 2603,
         "linearizedBaseContracts": [
-          1359
+          2603
         ],
         "name": "DataTypes",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "DataTypes.TransactionType",
-            "id": 1350,
+            "id": 2586,
             "members": [
               {
-                "id": 1341,
+                "id": 2576,
                 "name": "NONE",
                 "nodeType": "EnumValue",
-                "src": "76:4:5"
+                "src": "191:4:7"
               },
               {
-                "id": 1342,
+                "id": 2577,
                 "name": "DEPOSIT",
                 "nodeType": "EnumValue",
-                "src": "82:7:5"
+                "src": "197:7:7"
               },
               {
-                "id": 1343,
+                "id": 2578,
                 "name": "WITHDRAW",
                 "nodeType": "EnumValue",
-                "src": "91:8:5"
+                "src": "206:8:7"
               },
               {
-                "id": 1344,
+                "id": 2579,
                 "name": "BORROW",
                 "nodeType": "EnumValue",
-                "src": "101:6:5"
+                "src": "216:6:7"
               },
               {
-                "id": 1345,
+                "id": 2580,
                 "name": "REPAY",
                 "nodeType": "EnumValue",
-                "src": "109:5:5"
+                "src": "224:5:7"
               },
               {
-                "id": 1346,
+                "id": 2581,
+                "name": "LIQUIDATION",
+                "nodeType": "EnumValue",
+                "src": "231:11:7"
+              },
+              {
+                "id": 2582,
                 "name": "STAKE",
                 "nodeType": "EnumValue",
-                "src": "116:5:5"
+                "src": "244:5:7"
               },
               {
-                "id": 1347,
+                "id": 2583,
                 "name": "UNSTAKE",
                 "nodeType": "EnumValue",
-                "src": "123:7:5"
+                "src": "251:7:7"
               },
               {
-                "id": 1348,
+                "id": 2584,
                 "name": "STAKE_REWARD",
                 "nodeType": "EnumValue",
-                "src": "132:12:5"
+                "src": "260:12:7"
               },
               {
-                "id": 1349,
+                "id": 2585,
                 "name": "SLASH",
                 "nodeType": "EnumValue",
-                "src": "146:5:5"
+                "src": "274:5:7"
               }
             ],
             "name": "TransactionType",
             "nodeType": "EnumDefinition",
-            "src": "54:98:5"
+            "src": "169:111:7"
           },
           {
             "canonicalName": "DataTypes.InterestMode",
-            "id": 1354,
+            "id": 2590,
             "members": [
               {
-                "id": 1351,
+                "id": 2587,
                 "name": "NONE",
                 "nodeType": "EnumValue",
-                "src": "177:4:5"
+                "src": "305:4:7"
               },
               {
-                "id": 1352,
+                "id": 2588,
                 "name": "FIXED",
                 "nodeType": "EnumValue",
-                "src": "183:5:5"
+                "src": "311:5:7"
               },
               {
-                "id": 1353,
+                "id": 2589,
                 "name": "VARIABLE",
                 "nodeType": "EnumValue",
-                "src": "190:8:5"
+                "src": "318:8:7"
               }
             ],
             "name": "InterestMode",
             "nodeType": "EnumDefinition",
-            "src": "158:41:5"
+            "src": "286:41:7"
           },
           {
             "canonicalName": "DataTypes.BalanceType",
-            "id": 1358,
+            "id": 2594,
             "members": [
               {
-                "id": 1355,
+                "id": 2591,
                 "name": "NONE",
                 "nodeType": "EnumValue",
-                "src": "223:4:5"
+                "src": "351:4:7"
               },
               {
-                "id": 1356,
+                "id": 2592,
                 "name": "DEFAULT",
                 "nodeType": "EnumValue",
-                "src": "229:7:5"
+                "src": "357:7:7"
               },
               {
-                "id": 1357,
+                "id": 2593,
                 "name": "LENDING",
                 "nodeType": "EnumValue",
-                "src": "238:7:5"
+                "src": "366:7:7"
               }
             ],
             "name": "BalanceType",
             "nodeType": "EnumDefinition",
-            "src": "205:41:5"
+            "src": "333:41:7"
+          },
+          {
+            "canonicalName": "DataTypes.LiquidationType",
+            "id": 2599,
+            "members": [
+              {
+                "id": 2595,
+                "name": "NONE",
+                "nodeType": "EnumValue",
+                "src": "402:4:7"
+              },
+              {
+                "id": 2596,
+                "name": "BORROWABLE",
+                "nodeType": "EnumValue",
+                "src": "408:10:7"
+              },
+              {
+                "id": 2597,
+                "name": "UNBORROWABLE",
+                "nodeType": "EnumValue",
+                "src": "420:12:7"
+              },
+              {
+                "id": 2598,
+                "name": "LIQUIDATED",
+                "nodeType": "EnumValue",
+                "src": "434:10:7"
+              }
+            ],
+            "name": "LiquidationType",
+            "nodeType": "EnumDefinition",
+            "src": "380:65:7"
+          },
+          {
+            "constant": true,
+            "functionSelector": "252e40b1",
+            "id": 2602,
+            "mutability": "constant",
+            "name": "secondsPerYear",
+            "nodeType": "VariableDeclaration",
+            "scope": 2603,
+            "src": "451:46:7",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2600,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "451:4:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "3331353336303030",
+              "id": 2601,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "489:8:7",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_31536000_by_1",
+                "typeString": "int_const 31536000"
+              },
+              "value": "31536000"
+            },
+            "visibility": "public"
           }
         ],
-        "scope": 1361,
-        "src": "25:223:5"
+        "scope": 2698,
+        "src": "140:360:7"
       },
       {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "library",
+        "documentation": {
+          "id": 2604,
+          "nodeType": "StructuredDocumentation",
+          "src": "502:87:7",
+          "text": " @author Rastislav Budinsky\n @dev utility library for calculating liquidations"
+        },
         "fullyImplemented": true,
-        "id": 1360,
+        "id": 2651,
         "linearizedBaseContracts": [
-          1360
+          2651
         ],
-        "name": "Interest",
+        "name": "Liquidations",
         "nodeType": "ContractDefinition",
-        "nodes": [],
-        "scope": 1361,
-        "src": "250:1544:5"
+        "nodes": [
+          {
+            "body": {
+              "id": 2628,
+              "nodeType": "Block",
+              "src": "1617:61:7",
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "expression": {
+                        "id": 2624,
+                        "name": "DataTypes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2603,
+                        "src": "1635:9:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_DataTypes_$2603_$",
+                          "typeString": "type(library DataTypes)"
+                        }
+                      },
+                      "id": 2625,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "LiquidationType",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2599,
+                      "src": "1635:25:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_enum$_LiquidationType_$2599_$",
+                        "typeString": "type(enum DataTypes.LiquidationType)"
+                      }
+                    },
+                    "id": 2626,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "lValueRequested": false,
+                    "memberName": "BORROWABLE",
+                    "nodeType": "MemberAccess",
+                    "src": "1635:36:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_LiquidationType_$2599",
+                      "typeString": "enum DataTypes.LiquidationType"
+                    }
+                  },
+                  "functionReturnParameters": 2623,
+                  "id": 2627,
+                  "nodeType": "Return",
+                  "src": "1628:43:7"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2605,
+              "nodeType": "StructuredDocumentation",
+              "src": "618:751:7",
+              "text": " @notice checks, if the liquidation treshold is exceeded\n @param asset the address of the borrowed asset\n @param amount1 the amount of the borrowed asset\n @param collateral the address of the underlying asset\n @param amount2 the amount of collateral\n @param liquidation the treshold before liquidation of this pair\n @param borrow the treshold before the borrow is denied\n @param decimals the decimal precision of liquidation and borrow tresholds\n @return LiquidationType   BORROWABLE: if the user is allowed to borrow\n                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated\n                           LIQUIDATED: the user should get liquidated"
+            },
+            "functionSelector": "817a2623",
+            "id": 2629,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkLiquidated",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2620,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2607,
+                  "mutability": "mutable",
+                  "name": "asset",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1408:13:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2606,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1408:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2609,
+                  "mutability": "mutable",
+                  "name": "amount1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1431:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2608,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1431:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2611,
+                  "mutability": "mutable",
+                  "name": "collateral",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1453:18:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2610,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1453:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2613,
+                  "mutability": "mutable",
+                  "name": "amount2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1481:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2612,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1481:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2615,
+                  "mutability": "mutable",
+                  "name": "liquidation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1503:16:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2614,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1503:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2617,
+                  "mutability": "mutable",
+                  "name": "borrow",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1529:11:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2616,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1529:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2619,
+                  "mutability": "mutable",
+                  "name": "decimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1550:13:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2618,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1550:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1398:171:7"
+            },
+            "returnParameters": {
+              "id": 2623,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2622,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2629,
+                  "src": "1590:25:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_LiquidationType_$2599",
+                    "typeString": "enum DataTypes.LiquidationType"
+                  },
+                  "typeName": {
+                    "id": 2621,
+                    "name": "DataTypes.LiquidationType",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2599,
+                    "src": "1590:25:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_LiquidationType_$2599",
+                      "typeString": "enum DataTypes.LiquidationType"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1589:27:7"
+            },
+            "scope": 2651,
+            "src": "1374:304:7",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2649,
+              "nodeType": "Block",
+              "src": "2379:26:7",
+              "statements": [
+                {
+                  "expression": {
+                    "hexValue": "30",
+                    "id": 2647,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "2397:1:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_0_by_1",
+                      "typeString": "int_const 0"
+                    },
+                    "value": "0"
+                  },
+                  "functionReturnParameters": 2646,
+                  "id": 2648,
+                  "nodeType": "Return",
+                  "src": "2390:8:7"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2630,
+              "nodeType": "StructuredDocumentation",
+              "src": "1684:485:7",
+              "text": " @notice calculates the liquidation price\n @param asset the address of the borrowed asset\n @param amount1 the amount of the borrowed asset\n @param collateral the address of the underlying asset\n @param amount2 the amount of the underlying asset\n @param liquidation the treshold before liquidation of this pair\n @param decimals the decimal precision of liquidation\n @return returns the price at which the underlying asset if liquidated"
+            },
+            "functionSelector": "3d182f0f",
+            "id": 2650,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLiquidationPrice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2643,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2632,
+                  "mutability": "mutable",
+                  "name": "asset",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2212:13:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2631,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2212:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2634,
+                  "mutability": "mutable",
+                  "name": "amount1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2235:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2633,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2235:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2636,
+                  "mutability": "mutable",
+                  "name": "collateral",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2257:18:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2635,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2257:7:7",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2638,
+                  "mutability": "mutable",
+                  "name": "amount2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2285:12:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2637,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2285:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2640,
+                  "mutability": "mutable",
+                  "name": "liquidation",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2307:16:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2639,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2307:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2642,
+                  "mutability": "mutable",
+                  "name": "decimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2333:13:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2641,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2333:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2202:150:7"
+            },
+            "returnParameters": {
+              "id": 2646,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2645,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2650,
+                  "src": "2373:4:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2644,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2373:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2372:6:7"
+            },
+            "scope": 2651,
+            "src": "2174:231:7",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2698,
+        "src": "590:1817:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 2652,
+          "nodeType": "StructuredDocumentation",
+          "src": "2409:81:7",
+          "text": " @author Rastislav Budinsky\n @dev utility library for selecting interests"
+        },
+        "fullyImplemented": true,
+        "id": 2697,
+        "linearizedBaseContracts": [
+          2697
+        ],
+        "name": "Interests",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2695,
+              "nodeType": "Block",
+              "src": "3228:276:7",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_enum$_BalanceType_$2594",
+                      "typeString": "enum DataTypes.BalanceType"
+                    },
+                    "id": 2674,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2670,
+                      "name": "balanceType",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2655,
+                      "src": "3242:11:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BalanceType_$2594",
+                        "typeString": "enum DataTypes.BalanceType"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "expression": {
+                        "expression": {
+                          "id": 2671,
+                          "name": "DataTypes",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2603,
+                          "src": "3257:9:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_DataTypes_$2603_$",
+                            "typeString": "type(library DataTypes)"
+                          }
+                        },
+                        "id": 2672,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "BalanceType",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 2594,
+                        "src": "3257:21:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_BalanceType_$2594_$",
+                          "typeString": "type(enum DataTypes.BalanceType)"
+                        }
+                      },
+                      "id": 2673,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberName": "LENDING",
+                      "nodeType": "MemberAccess",
+                      "src": "3257:29:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_BalanceType_$2594",
+                        "typeString": "enum DataTypes.BalanceType"
+                      }
+                    },
+                    "src": "3242:44:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2685,
+                  "nodeType": "IfStatement",
+                  "src": "3238:165:7",
+                  "trueBody": {
+                    "id": 2684,
+                    "nodeType": "Block",
+                    "src": "3296:107:7",
+                    "statements": [
+                      {
+                        "expression": {
+                          "condition": {
+                            "commonType": {
+                              "typeIdentifier": "t_enum$_InterestMode_$2590",
+                              "typeString": "enum DataTypes.InterestMode"
+                            },
+                            "id": 2679,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "id": 2675,
+                              "name": "interestMode",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2657,
+                              "src": "3317:12:7",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_enum$_InterestMode_$2590",
+                                "typeString": "enum DataTypes.InterestMode"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "==",
+                            "rightExpression": {
+                              "expression": {
+                                "expression": {
+                                  "id": 2676,
+                                  "name": "DataTypes",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 2603,
+                                  "src": "3333:9:7",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_type$_t_contract$_DataTypes_$2603_$",
+                                    "typeString": "type(library DataTypes)"
+                                  }
+                                },
+                                "id": 2677,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "InterestMode",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 2590,
+                                "src": "3333:22:7",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_enum$_InterestMode_$2590_$",
+                                  "typeString": "type(enum DataTypes.InterestMode)"
+                                }
+                              },
+                              "id": 2678,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "memberName": "FIXED",
+                              "nodeType": "MemberAccess",
+                              "src": "3333:28:7",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_enum$_InterestMode_$2590",
+                                "typeString": "enum DataTypes.InterestMode"
+                              }
+                            },
+                            "src": "3317:44:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            }
+                          },
+                          "falseExpression": {
+                            "id": 2681,
+                            "name": "variableBorrow",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2663,
+                            "src": "3378:14:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "id": 2682,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "Conditional",
+                          "src": "3317:75:7",
+                          "trueExpression": {
+                            "id": 2680,
+                            "name": "fixedBorrow",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2665,
+                            "src": "3364:11:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 2669,
+                        "id": 2683,
+                        "nodeType": "Return",
+                        "src": "3310:82:7"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "expression": {
+                    "condition": {
+                      "commonType": {
+                        "typeIdentifier": "t_enum$_InterestMode_$2590",
+                        "typeString": "enum DataTypes.InterestMode"
+                      },
+                      "id": 2690,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "id": 2686,
+                        "name": "interestMode",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2657,
+                        "src": "3420:12:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_InterestMode_$2590",
+                          "typeString": "enum DataTypes.InterestMode"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "==",
+                      "rightExpression": {
+                        "expression": {
+                          "expression": {
+                            "id": 2687,
+                            "name": "DataTypes",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2603,
+                            "src": "3436:9:7",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_contract$_DataTypes_$2603_$",
+                              "typeString": "type(library DataTypes)"
+                            }
+                          },
+                          "id": 2688,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "InterestMode",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2590,
+                          "src": "3436:22:7",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_enum$_InterestMode_$2590_$",
+                            "typeString": "type(enum DataTypes.InterestMode)"
+                          }
+                        },
+                        "id": 2689,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberName": "FIXED",
+                        "nodeType": "MemberAccess",
+                        "src": "3436:28:7",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_enum$_InterestMode_$2590",
+                          "typeString": "enum DataTypes.InterestMode"
+                        }
+                      },
+                      "src": "3420:44:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "falseExpression": {
+                      "id": 2692,
+                      "name": "variableDeposit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2659,
+                      "src": "3482:15:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2693,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "Conditional",
+                    "src": "3420:77:7",
+                    "trueExpression": {
+                      "id": 2691,
+                      "name": "fixedDeposit",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2661,
+                      "src": "3467:12:7",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2669,
+                  "id": 2694,
+                  "nodeType": "Return",
+                  "src": "3413:84:7"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 2653,
+              "nodeType": "StructuredDocumentation",
+              "src": "2516:444:7",
+              "text": " @dev selects the proper interest rate\n @param balanceType the type of balance\n @param interestMode the interest mode selected\n @param variableDeposit the variable deposit interest rate\n @param fixedDeposit the fixed deposit interest rate\n @param variableBorrow the variable borrow interest rate\n @param fixedBorrow the fixed borrow interest rate\n @return returns the interest rate accordingly"
+            },
+            "id": 2696,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "selectInterestRate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2666,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2655,
+                  "mutability": "mutable",
+                  "name": "balanceType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3002:33:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_BalanceType_$2594",
+                    "typeString": "enum DataTypes.BalanceType"
+                  },
+                  "typeName": {
+                    "id": 2654,
+                    "name": "DataTypes.BalanceType",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2594,
+                    "src": "3002:21:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_BalanceType_$2594",
+                      "typeString": "enum DataTypes.BalanceType"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2657,
+                  "mutability": "mutable",
+                  "name": "interestMode",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3045:35:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_InterestMode_$2590",
+                    "typeString": "enum DataTypes.InterestMode"
+                  },
+                  "typeName": {
+                    "id": 2656,
+                    "name": "DataTypes.InterestMode",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 2590,
+                    "src": "3045:22:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_InterestMode_$2590",
+                      "typeString": "enum DataTypes.InterestMode"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2659,
+                  "mutability": "mutable",
+                  "name": "variableDeposit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3090:20:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2658,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3090:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2661,
+                  "mutability": "mutable",
+                  "name": "fixedDeposit",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3120:17:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2660,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3120:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2663,
+                  "mutability": "mutable",
+                  "name": "variableBorrow",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3147:19:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2662,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3147:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2665,
+                  "mutability": "mutable",
+                  "name": "fixedBorrow",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3176:16:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2664,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3176:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2992:207:7"
+            },
+            "returnParameters": {
+              "id": 2669,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2668,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2696,
+                  "src": "3222:4:7",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2667,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3222:4:7",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3221:6:7"
+            },
+            "scope": 2697,
+            "src": "2965:539:7",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2698,
+        "src": "2491:2539:7"
       }
     ],
-    "src": "0:1794:5"
+    "src": "0:5030:7"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/Utils.sol",
+      "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol",
       "exportedSymbols": {
         "DataTypes": [
-          1359
+          2603
         ],
-        "Interest": [
-          1360
+        "Interests": [
+          2697
+        ],
+        "Liquidations": [
+          2651
         ]
       }
     },
@@ -210,9 +1429,9 @@
             ".5"
           ]
         },
-        "id": 1340,
+        "id": 2574,
         "name": "PragmaDirective",
-        "src": "0:23:5"
+        "src": "0:23:7"
       },
       {
         "attributes": {
@@ -226,12 +1445,20 @@
           "contractKind": "library",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1359
+            2603
           ],
           "name": "DataTypes",
-          "scope": 1361
+          "scope": 2698
         },
         "children": [
+          {
+            "attributes": {
+              "text": " @author Rastislav Budinsky\n @dev library declaring all used enums at the moment in the DataTypes library"
+            },
+            "id": 2575,
+            "name": "StructuredDocumentation",
+            "src": "25:114:7"
+          },
           {
             "attributes": {
               "canonicalName": "DataTypes.TransactionType",
@@ -242,78 +1469,86 @@
                 "attributes": {
                   "name": "NONE"
                 },
-                "id": 1341,
+                "id": 2576,
                 "name": "EnumValue",
-                "src": "76:4:5"
+                "src": "191:4:7"
               },
               {
                 "attributes": {
                   "name": "DEPOSIT"
                 },
-                "id": 1342,
+                "id": 2577,
                 "name": "EnumValue",
-                "src": "82:7:5"
+                "src": "197:7:7"
               },
               {
                 "attributes": {
                   "name": "WITHDRAW"
                 },
-                "id": 1343,
+                "id": 2578,
                 "name": "EnumValue",
-                "src": "91:8:5"
+                "src": "206:8:7"
               },
               {
                 "attributes": {
                   "name": "BORROW"
                 },
-                "id": 1344,
+                "id": 2579,
                 "name": "EnumValue",
-                "src": "101:6:5"
+                "src": "216:6:7"
               },
               {
                 "attributes": {
                   "name": "REPAY"
                 },
-                "id": 1345,
+                "id": 2580,
                 "name": "EnumValue",
-                "src": "109:5:5"
+                "src": "224:5:7"
+              },
+              {
+                "attributes": {
+                  "name": "LIQUIDATION"
+                },
+                "id": 2581,
+                "name": "EnumValue",
+                "src": "231:11:7"
               },
               {
                 "attributes": {
                   "name": "STAKE"
                 },
-                "id": 1346,
+                "id": 2582,
                 "name": "EnumValue",
-                "src": "116:5:5"
+                "src": "244:5:7"
               },
               {
                 "attributes": {
                   "name": "UNSTAKE"
                 },
-                "id": 1347,
+                "id": 2583,
                 "name": "EnumValue",
-                "src": "123:7:5"
+                "src": "251:7:7"
               },
               {
                 "attributes": {
                   "name": "STAKE_REWARD"
                 },
-                "id": 1348,
+                "id": 2584,
                 "name": "EnumValue",
-                "src": "132:12:5"
+                "src": "260:12:7"
               },
               {
                 "attributes": {
                   "name": "SLASH"
                 },
-                "id": 1349,
+                "id": 2585,
                 "name": "EnumValue",
-                "src": "146:5:5"
+                "src": "274:5:7"
               }
             ],
-            "id": 1350,
+            "id": 2586,
             "name": "EnumDefinition",
-            "src": "54:98:5"
+            "src": "169:111:7"
           },
           {
             "attributes": {
@@ -325,30 +1560,30 @@
                 "attributes": {
                   "name": "NONE"
                 },
-                "id": 1351,
+                "id": 2587,
                 "name": "EnumValue",
-                "src": "177:4:5"
+                "src": "305:4:7"
               },
               {
                 "attributes": {
                   "name": "FIXED"
                 },
-                "id": 1352,
+                "id": 2588,
                 "name": "EnumValue",
-                "src": "183:5:5"
+                "src": "311:5:7"
               },
               {
                 "attributes": {
                   "name": "VARIABLE"
                 },
-                "id": 1353,
+                "id": 2589,
                 "name": "EnumValue",
-                "src": "190:8:5"
+                "src": "318:8:7"
               }
             ],
-            "id": 1354,
+            "id": 2590,
             "name": "EnumDefinition",
-            "src": "158:41:5"
+            "src": "286:41:7"
           },
           {
             "attributes": {
@@ -360,35 +1595,120 @@
                 "attributes": {
                   "name": "NONE"
                 },
-                "id": 1355,
+                "id": 2591,
                 "name": "EnumValue",
-                "src": "223:4:5"
+                "src": "351:4:7"
               },
               {
                 "attributes": {
                   "name": "DEFAULT"
                 },
-                "id": 1356,
+                "id": 2592,
                 "name": "EnumValue",
-                "src": "229:7:5"
+                "src": "357:7:7"
               },
               {
                 "attributes": {
                   "name": "LENDING"
                 },
-                "id": 1357,
+                "id": 2593,
                 "name": "EnumValue",
-                "src": "238:7:5"
+                "src": "366:7:7"
               }
             ],
-            "id": 1358,
+            "id": 2594,
             "name": "EnumDefinition",
-            "src": "205:41:5"
+            "src": "333:41:7"
+          },
+          {
+            "attributes": {
+              "canonicalName": "DataTypes.LiquidationType",
+              "name": "LiquidationType"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "NONE"
+                },
+                "id": 2595,
+                "name": "EnumValue",
+                "src": "402:4:7"
+              },
+              {
+                "attributes": {
+                  "name": "BORROWABLE"
+                },
+                "id": 2596,
+                "name": "EnumValue",
+                "src": "408:10:7"
+              },
+              {
+                "attributes": {
+                  "name": "UNBORROWABLE"
+                },
+                "id": 2597,
+                "name": "EnumValue",
+                "src": "420:12:7"
+              },
+              {
+                "attributes": {
+                  "name": "LIQUIDATED"
+                },
+                "id": 2598,
+                "name": "EnumValue",
+                "src": "434:10:7"
+              }
+            ],
+            "id": 2599,
+            "name": "EnumDefinition",
+            "src": "380:65:7"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "252e40b1",
+              "mutability": "constant",
+              "name": "secondsPerYear",
+              "scope": 2603,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 2600,
+                "name": "ElementaryTypeName",
+                "src": "451:4:7"
+              },
+              {
+                "attributes": {
+                  "hexvalue": "3331353336303030",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "token": "number",
+                  "type": "int_const 31536000",
+                  "value": "31536000"
+                },
+                "id": 2601,
+                "name": "Literal",
+                "src": "489:8:7"
+              }
+            ],
+            "id": 2602,
+            "name": "VariableDeclaration",
+            "src": "451:46:7"
           }
         ],
-        "id": 1359,
+        "id": 2603,
         "name": "ContractDefinition",
-        "src": "25:223:5"
+        "src": "140:360:7"
       },
       {
         "attributes": {
@@ -402,22 +1722,1210 @@
           "contractKind": "library",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1360
+            2651
           ],
-          "name": "Interest",
-          "nodes": [
+          "name": "Liquidations",
+          "scope": 2698
+        },
+        "children": [
+          {
+            "attributes": {
+              "text": " @author Rastislav Budinsky\n @dev utility library for calculating liquidations"
+            },
+            "id": 2604,
+            "name": "StructuredDocumentation",
+            "src": "502:87:7"
+          },
+          {
+            "attributes": {
+              "functionSelector": "817a2623",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "checkLiquidated",
+              "scope": 2651,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice checks, if the liquidation treshold is exceeded\n @param asset the address of the borrowed asset\n @param amount1 the amount of the borrowed asset\n @param collateral the address of the underlying asset\n @param amount2 the amount of collateral\n @param liquidation the treshold before liquidation of this pair\n @param borrow the treshold before the borrow is denied\n @param decimals the decimal precision of liquidation and borrow tresholds\n @return LiquidationType   BORROWABLE: if the user is allowed to borrow\n                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated\n                           LIQUIDATED: the user should get liquidated"
+                },
+                "id": 2605,
+                "name": "StructuredDocumentation",
+                "src": "618:751:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "asset",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 2606,
+                        "name": "ElementaryTypeName",
+                        "src": "1408:7:7"
+                      }
+                    ],
+                    "id": 2607,
+                    "name": "VariableDeclaration",
+                    "src": "1408:13:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount1",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2608,
+                        "name": "ElementaryTypeName",
+                        "src": "1431:4:7"
+                      }
+                    ],
+                    "id": 2609,
+                    "name": "VariableDeclaration",
+                    "src": "1431:12:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "collateral",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 2610,
+                        "name": "ElementaryTypeName",
+                        "src": "1453:7:7"
+                      }
+                    ],
+                    "id": 2611,
+                    "name": "VariableDeclaration",
+                    "src": "1453:18:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount2",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2612,
+                        "name": "ElementaryTypeName",
+                        "src": "1481:4:7"
+                      }
+                    ],
+                    "id": 2613,
+                    "name": "VariableDeclaration",
+                    "src": "1481:12:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "liquidation",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2614,
+                        "name": "ElementaryTypeName",
+                        "src": "1503:4:7"
+                      }
+                    ],
+                    "id": 2615,
+                    "name": "VariableDeclaration",
+                    "src": "1503:16:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "borrow",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2616,
+                        "name": "ElementaryTypeName",
+                        "src": "1529:4:7"
+                      }
+                    ],
+                    "id": 2617,
+                    "name": "VariableDeclaration",
+                    "src": "1529:11:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "decimals",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2618,
+                        "name": "ElementaryTypeName",
+                        "src": "1550:4:7"
+                      }
+                    ],
+                    "id": 2619,
+                    "name": "VariableDeclaration",
+                    "src": "1550:13:7"
+                  }
+                ],
+                "id": 2620,
+                "name": "ParameterList",
+                "src": "1398:171:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 2629,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum DataTypes.LiquidationType",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "DataTypes.LiquidationType",
+                          "referencedDeclaration": 2599,
+                          "type": "enum DataTypes.LiquidationType"
+                        },
+                        "id": 2621,
+                        "name": "UserDefinedTypeName",
+                        "src": "1590:25:7"
+                      }
+                    ],
+                    "id": 2622,
+                    "name": "VariableDeclaration",
+                    "src": "1590:25:7"
+                  }
+                ],
+                "id": 2623,
+                "name": "ParameterList",
+                "src": "1589:27:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2623
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "member_name": "BORROWABLE",
+                          "type": "enum DataTypes.LiquidationType"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "LiquidationType",
+                              "referencedDeclaration": 2599,
+                              "type": "type(enum DataTypes.LiquidationType)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2603,
+                                  "type": "type(library DataTypes)",
+                                  "value": "DataTypes"
+                                },
+                                "id": 2624,
+                                "name": "Identifier",
+                                "src": "1635:9:7"
+                              }
+                            ],
+                            "id": 2625,
+                            "name": "MemberAccess",
+                            "src": "1635:25:7"
+                          }
+                        ],
+                        "id": 2626,
+                        "name": "MemberAccess",
+                        "src": "1635:36:7"
+                      }
+                    ],
+                    "id": 2627,
+                    "name": "Return",
+                    "src": "1628:43:7"
+                  }
+                ],
+                "id": 2628,
+                "name": "Block",
+                "src": "1617:61:7"
+              }
+            ],
+            "id": 2629,
+            "name": "FunctionDefinition",
+            "src": "1374:304:7"
+          },
+          {
+            "attributes": {
+              "functionSelector": "3d182f0f",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getLiquidationPrice",
+              "scope": 2651,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice calculates the liquidation price\n @param asset the address of the borrowed asset\n @param amount1 the amount of the borrowed asset\n @param collateral the address of the underlying asset\n @param amount2 the amount of the underlying asset\n @param liquidation the treshold before liquidation of this pair\n @param decimals the decimal precision of liquidation\n @return returns the price at which the underlying asset if liquidated"
+                },
+                "id": 2630,
+                "name": "StructuredDocumentation",
+                "src": "1684:485:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "asset",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 2631,
+                        "name": "ElementaryTypeName",
+                        "src": "2212:7:7"
+                      }
+                    ],
+                    "id": 2632,
+                    "name": "VariableDeclaration",
+                    "src": "2212:13:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount1",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2633,
+                        "name": "ElementaryTypeName",
+                        "src": "2235:4:7"
+                      }
+                    ],
+                    "id": 2634,
+                    "name": "VariableDeclaration",
+                    "src": "2235:12:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "collateral",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 2635,
+                        "name": "ElementaryTypeName",
+                        "src": "2257:7:7"
+                      }
+                    ],
+                    "id": 2636,
+                    "name": "VariableDeclaration",
+                    "src": "2257:18:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount2",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2637,
+                        "name": "ElementaryTypeName",
+                        "src": "2285:4:7"
+                      }
+                    ],
+                    "id": 2638,
+                    "name": "VariableDeclaration",
+                    "src": "2285:12:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "liquidation",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2639,
+                        "name": "ElementaryTypeName",
+                        "src": "2307:4:7"
+                      }
+                    ],
+                    "id": 2640,
+                    "name": "VariableDeclaration",
+                    "src": "2307:16:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "decimals",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2641,
+                        "name": "ElementaryTypeName",
+                        "src": "2333:4:7"
+                      }
+                    ],
+                    "id": 2642,
+                    "name": "VariableDeclaration",
+                    "src": "2333:13:7"
+                  }
+                ],
+                "id": 2643,
+                "name": "ParameterList",
+                "src": "2202:150:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 2650,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2644,
+                        "name": "ElementaryTypeName",
+                        "src": "2373:4:7"
+                      }
+                    ],
+                    "id": 2645,
+                    "name": "VariableDeclaration",
+                    "src": "2373:4:7"
+                  }
+                ],
+                "id": 2646,
+                "name": "ParameterList",
+                "src": "2372:6:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2646
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "hexvalue": "30",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "token": "number",
+                          "type": "int_const 0",
+                          "value": "0"
+                        },
+                        "id": 2647,
+                        "name": "Literal",
+                        "src": "2397:1:7"
+                      }
+                    ],
+                    "id": 2648,
+                    "name": "Return",
+                    "src": "2390:8:7"
+                  }
+                ],
+                "id": 2649,
+                "name": "Block",
+                "src": "2379:26:7"
+              }
+            ],
+            "id": 2650,
+            "name": "FunctionDefinition",
+            "src": "2174:231:7"
+          }
+        ],
+        "id": 2651,
+        "name": "ContractDefinition",
+        "src": "590:1817:7"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
             null
           ],
-          "scope": 1361
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2697
+          ],
+          "name": "Interests",
+          "scope": 2698
         },
-        "id": 1360,
+        "children": [
+          {
+            "attributes": {
+              "text": " @author Rastislav Budinsky\n @dev utility library for selecting interests"
+            },
+            "id": 2652,
+            "name": "StructuredDocumentation",
+            "src": "2409:81:7"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "selectInterestRate",
+              "scope": 2697,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev selects the proper interest rate\n @param balanceType the type of balance\n @param interestMode the interest mode selected\n @param variableDeposit the variable deposit interest rate\n @param fixedDeposit the fixed deposit interest rate\n @param variableBorrow the variable borrow interest rate\n @param fixedBorrow the fixed borrow interest rate\n @return returns the interest rate accordingly"
+                },
+                "id": 2653,
+                "name": "StructuredDocumentation",
+                "src": "2516:444:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "balanceType",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum DataTypes.BalanceType",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "DataTypes.BalanceType",
+                          "referencedDeclaration": 2594,
+                          "type": "enum DataTypes.BalanceType"
+                        },
+                        "id": 2654,
+                        "name": "UserDefinedTypeName",
+                        "src": "3002:21:7"
+                      }
+                    ],
+                    "id": 2655,
+                    "name": "VariableDeclaration",
+                    "src": "3002:33:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "interestMode",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum DataTypes.InterestMode",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "DataTypes.InterestMode",
+                          "referencedDeclaration": 2590,
+                          "type": "enum DataTypes.InterestMode"
+                        },
+                        "id": 2656,
+                        "name": "UserDefinedTypeName",
+                        "src": "3045:22:7"
+                      }
+                    ],
+                    "id": 2657,
+                    "name": "VariableDeclaration",
+                    "src": "3045:35:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "variableDeposit",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2658,
+                        "name": "ElementaryTypeName",
+                        "src": "3090:4:7"
+                      }
+                    ],
+                    "id": 2659,
+                    "name": "VariableDeclaration",
+                    "src": "3090:20:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "fixedDeposit",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2660,
+                        "name": "ElementaryTypeName",
+                        "src": "3120:4:7"
+                      }
+                    ],
+                    "id": 2661,
+                    "name": "VariableDeclaration",
+                    "src": "3120:17:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "variableBorrow",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2662,
+                        "name": "ElementaryTypeName",
+                        "src": "3147:4:7"
+                      }
+                    ],
+                    "id": 2663,
+                    "name": "VariableDeclaration",
+                    "src": "3147:19:7"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "fixedBorrow",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2664,
+                        "name": "ElementaryTypeName",
+                        "src": "3176:4:7"
+                      }
+                    ],
+                    "id": 2665,
+                    "name": "VariableDeclaration",
+                    "src": "3176:16:7"
+                  }
+                ],
+                "id": 2666,
+                "name": "ParameterList",
+                "src": "2992:207:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 2696,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 2667,
+                        "name": "ElementaryTypeName",
+                        "src": "3222:4:7"
+                      }
+                    ],
+                    "id": 2668,
+                    "name": "VariableDeclaration",
+                    "src": "3222:4:7"
+                  }
+                ],
+                "id": 2669,
+                "name": "ParameterList",
+                "src": "3221:6:7"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {
+                          "commonType": {
+                            "typeIdentifier": "t_enum$_BalanceType_$2594",
+                            "typeString": "enum DataTypes.BalanceType"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "==",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2655,
+                              "type": "enum DataTypes.BalanceType",
+                              "value": "balanceType"
+                            },
+                            "id": 2670,
+                            "name": "Identifier",
+                            "src": "3242:11:7"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "member_name": "LENDING",
+                              "type": "enum DataTypes.BalanceType"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "BalanceType",
+                                  "referencedDeclaration": 2594,
+                                  "type": "type(enum DataTypes.BalanceType)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2603,
+                                      "type": "type(library DataTypes)",
+                                      "value": "DataTypes"
+                                    },
+                                    "id": 2671,
+                                    "name": "Identifier",
+                                    "src": "3257:9:7"
+                                  }
+                                ],
+                                "id": 2672,
+                                "name": "MemberAccess",
+                                "src": "3257:21:7"
+                              }
+                            ],
+                            "id": 2673,
+                            "name": "MemberAccess",
+                            "src": "3257:29:7"
+                          }
+                        ],
+                        "id": 2674,
+                        "name": "BinaryOperation",
+                        "src": "3242:44:7"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "functionReturnParameters": 2669
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "commonType": {
+                                        "typeIdentifier": "t_enum$_InterestMode_$2590",
+                                        "typeString": "enum DataTypes.InterestMode"
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "operator": "==",
+                                      "type": "bool"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2657,
+                                          "type": "enum DataTypes.InterestMode",
+                                          "value": "interestMode"
+                                        },
+                                        "id": 2675,
+                                        "name": "Identifier",
+                                        "src": "3317:12:7"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "member_name": "FIXED",
+                                          "type": "enum DataTypes.InterestMode"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "InterestMode",
+                                              "referencedDeclaration": 2590,
+                                              "type": "type(enum DataTypes.InterestMode)"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 2603,
+                                                  "type": "type(library DataTypes)",
+                                                  "value": "DataTypes"
+                                                },
+                                                "id": 2676,
+                                                "name": "Identifier",
+                                                "src": "3333:9:7"
+                                              }
+                                            ],
+                                            "id": 2677,
+                                            "name": "MemberAccess",
+                                            "src": "3333:22:7"
+                                          }
+                                        ],
+                                        "id": 2678,
+                                        "name": "MemberAccess",
+                                        "src": "3333:28:7"
+                                      }
+                                    ],
+                                    "id": 2679,
+                                    "name": "BinaryOperation",
+                                    "src": "3317:44:7"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2665,
+                                      "type": "uint256",
+                                      "value": "fixedBorrow"
+                                    },
+                                    "id": 2680,
+                                    "name": "Identifier",
+                                    "src": "3364:11:7"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2663,
+                                      "type": "uint256",
+                                      "value": "variableBorrow"
+                                    },
+                                    "id": 2681,
+                                    "name": "Identifier",
+                                    "src": "3378:14:7"
+                                  }
+                                ],
+                                "id": 2682,
+                                "name": "Conditional",
+                                "src": "3317:75:7"
+                              }
+                            ],
+                            "id": 2683,
+                            "name": "Return",
+                            "src": "3310:82:7"
+                          }
+                        ],
+                        "id": 2684,
+                        "name": "Block",
+                        "src": "3296:107:7"
+                      }
+                    ],
+                    "id": 2685,
+                    "name": "IfStatement",
+                    "src": "3238:165:7"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2669
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "commonType": {
+                                "typeIdentifier": "t_enum$_InterestMode_$2590",
+                                "typeString": "enum DataTypes.InterestMode"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2657,
+                                  "type": "enum DataTypes.InterestMode",
+                                  "value": "interestMode"
+                                },
+                                "id": 2686,
+                                "name": "Identifier",
+                                "src": "3420:12:7"
+                              },
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "member_name": "FIXED",
+                                  "type": "enum DataTypes.InterestMode"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "InterestMode",
+                                      "referencedDeclaration": 2590,
+                                      "type": "type(enum DataTypes.InterestMode)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 2603,
+                                          "type": "type(library DataTypes)",
+                                          "value": "DataTypes"
+                                        },
+                                        "id": 2687,
+                                        "name": "Identifier",
+                                        "src": "3436:9:7"
+                                      }
+                                    ],
+                                    "id": 2688,
+                                    "name": "MemberAccess",
+                                    "src": "3436:22:7"
+                                  }
+                                ],
+                                "id": 2689,
+                                "name": "MemberAccess",
+                                "src": "3436:28:7"
+                              }
+                            ],
+                            "id": 2690,
+                            "name": "BinaryOperation",
+                            "src": "3420:44:7"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2661,
+                              "type": "uint256",
+                              "value": "fixedDeposit"
+                            },
+                            "id": 2691,
+                            "name": "Identifier",
+                            "src": "3467:12:7"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 2659,
+                              "type": "uint256",
+                              "value": "variableDeposit"
+                            },
+                            "id": 2692,
+                            "name": "Identifier",
+                            "src": "3482:15:7"
+                          }
+                        ],
+                        "id": 2693,
+                        "name": "Conditional",
+                        "src": "3420:77:7"
+                      }
+                    ],
+                    "id": 2694,
+                    "name": "Return",
+                    "src": "3413:84:7"
+                  }
+                ],
+                "id": 2695,
+                "name": "Block",
+                "src": "3228:276:7"
+              }
+            ],
+            "id": 2696,
+            "name": "FunctionDefinition",
+            "src": "2965:539:7"
+          }
+        ],
+        "id": 2697,
         "name": "ContractDefinition",
-        "src": "250:1544:5"
+        "src": "2491:2539:7"
       }
     ],
-    "id": 1361,
+    "id": 2698,
     "name": "SourceUnit",
-    "src": "0:1794:5"
+    "src": "0:5030:7"
   },
   "compiler": {
     "name": "solc",
@@ -425,8 +2933,10 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-06-30T16:51:47.084Z",
+  "updatedAt": "2021-07-05T13:26:35.749Z",
   "devdoc": {
+    "author": "Rastislav Budinsky",
+    "details": "library declaring all used enums at the moment in the DataTypes library",
     "kind": "dev",
     "methods": {},
     "version": 1

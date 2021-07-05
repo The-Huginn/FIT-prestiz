@@ -1,17 +1,28 @@
 pragma solidity ^0.7.5;
 
+/**
+* @author Rastislav Budinsky
+* @dev library declaring all used enums at the moment in the DataTypes library
+*/
 library DataTypes {
     
-    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, STAKE, UNSTAKE, STAKE_REWARD, SLASH}
+    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, LIQUIDATION, STAKE, UNSTAKE, STAKE_REWARD, SLASH}
 
     enum InterestMode {NONE, FIXED, VARIABLE}
 
     enum BalanceType {NONE, DEFAULT, LENDING}
 
     enum LiquidationType {NONE, BORROWABLE, UNBORROWABLE, LIQUIDATED}
+
+    uint public constant secondsPerYear = 31536000;
 }
 
+/**
+* @author Rastislav Budinsky
+* @dev utility library for calculating liquidations
+*/
 library Liquidations {
+
     /**
     * @notice checks, if the liquidation treshold is exceeded
     * @param asset the address of the borrowed asset
@@ -37,8 +48,33 @@ library Liquidations {
 
         return DataTypes.LiquidationType.BORROWABLE;
     }
+
+    /**
+    * @notice calculates the liquidation price
+    * @param asset the address of the borrowed asset
+    * @param amount1 the amount of the borrowed asset
+    * @param collateral the address of the underlying asset
+    * @param amount2 the amount of the underlying asset
+    * @param liquidation the treshold before liquidation of this pair
+    * @param decimals the decimal precision of liquidation
+    * @return returns the price at which the underlying asset if liquidated
+    */
+    function getLiquidationPrice(
+        address asset,
+        uint amount1,
+        address collateral,
+        uint amount2,
+        uint liquidation,
+        uint decimals
+    ) public view returns(uint) {
+
+        return 0;
+    }
 }
 
+/**
+* @author Rastislav Budinsky
+* @dev utility library for selecting interests*/
 library Interests {
 
     /**
