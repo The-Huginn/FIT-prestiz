@@ -1,7 +1,7 @@
 import { expect } from 'chai'
-import { tokens, ether, ETHER_ADDRESS, EVM_REVERT, wait } from '../helpers/helpers.js'
+import { tokens, ether } from '../helpers/helpers.js'
 
-const Token = artifacts.require('./Token.sol')
+const Token = artifacts.require("Token")
 
 require('chai')
     .use(require('chai-as-promised'))

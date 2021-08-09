@@ -1,14 +1,108 @@
 {
-  "contractName": "Interests",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Rastislav Budinsky\",\"details\":\"utility library for selecting interests\",\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/libraries/Utils.sol\":\"Interests\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/libraries/Utils.sol\":{\"keccak256\":\"0x2e65d93730daae407b33e530255d8c6252d5cd47e3b08b6f1b73dce8f58ee7d0\",\"license\":\"0BSD\",\"urls\":[\"bzz-raw://a9a118c50d84a66dc11c97ce03e1914be6343e9376df3de8200e6cb5f65a71d8\",\"dweb:/ipfs/QmUTZqZkf54MmeekkEs6Ed4heAbn2VaMXRNncsBaxqMczy\"]}},\"version\":1}",
-  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220f98c3e12d0d63e6adb852ab8010f8a4f2461ecf8821c35280c2e4fcd1b6ea57864736f6c63430007060033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220f98c3e12d0d63e6adb852ab8010f8a4f2461ecf8821c35280c2e4fcd1b6ea57864736f6c63430007060033",
+  "contractName": "Liquidations",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "asset",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidation",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "borrow",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "decimals",
+          "type": "uint256"
+        }
+      ],
+      "name": "checkLiquidated",
+      "outputs": [
+        {
+          "internalType": "enum DataTypes.LiquidationType",
+          "name": "",
+          "type": "DataTypes.LiquidationType"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "asset",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "liquidation",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "decimals",
+          "type": "uint256"
+        }
+      ],
+      "name": "getLiquidationPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"collateral\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount2\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidation\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"borrow\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\"}],\"name\":\"checkLiquidated\",\"outputs\":[{\"internalType\":\"enum DataTypes.LiquidationType\",\"name\":\"\",\"type\":\"DataTypes.LiquidationType\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"asset\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"collateral\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount2\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidation\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"decimals\",\"type\":\"uint256\"}],\"name\":\"getLiquidationPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Rastislav Budinsky\",\"details\":\"utility library for calculating liquidations\",\"kind\":\"dev\",\"methods\":{\"checkLiquidated(address,uint256,address,uint256,uint256,uint256,uint256)\":{\"params\":{\"amount1\":\"the amount of the borrowed asset\",\"amount2\":\"the amount of collateral\",\"asset\":\"the address of the borrowed asset\",\"borrow\":\"the treshold before the borrow is denied\",\"collateral\":\"the address of the underlying asset\",\"decimals\":\"the decimal precision of liquidation and borrow tresholds\",\"liquidation\":\"the treshold before liquidation of this pair\"},\"returns\":{\"_0\":\"LiquidationType   BORROWABLE: if the user is allowed to borrow                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated                           LIQUIDATED: the user should get liquidated\"}},\"getLiquidationPrice(address,uint256,address,uint256,uint256,uint256)\":{\"params\":{\"amount1\":\"the amount of the borrowed asset\",\"amount2\":\"the amount of the underlying asset\",\"asset\":\"the address of the borrowed asset\",\"collateral\":\"the address of the underlying asset\",\"decimals\":\"the decimal precision of liquidation\",\"liquidation\":\"the treshold before liquidation of this pair\"},\"returns\":{\"_0\":\"returns the price at which the underlying asset if liquidated\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"checkLiquidated(address,uint256,address,uint256,uint256,uint256,uint256)\":{\"notice\":\"checks, if the liquidation treshold is exceeded\"},\"getLiquidationPrice(address,uint256,address,uint256,uint256,uint256)\":{\"notice\":\"calculates the liquidation price\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/libraries/Utils.sol\":\"Liquidations\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/libraries/Utils.sol\":{\"keccak256\":\"0x2e65d93730daae407b33e530255d8c6252d5cd47e3b08b6f1b73dce8f58ee7d0\",\"license\":\"0BSD\",\"urls\":[\"bzz-raw://a9a118c50d84a66dc11c97ce03e1914be6343e9376df3de8200e6cb5f65a71d8\",\"dweb:/ipfs/QmUTZqZkf54MmeekkEs6Ed4heAbn2VaMXRNncsBaxqMczy\"]}},\"version\":1}",
+  "bytecode": "0x6101ed610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100405760003560e01c80633d182f0f14610045578063817a2623146100e5575b600080fd5b6100cf600480360360c081101561005b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919050505061019a565b6040518082815260200191505060405180910390f35b610179600480360360e08110156100fb57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506101a6565b6040518082600381111561018957fe5b815260200191505060405180910390f35b60009695505050505050565b60006001905097965050505050505056fea26469706673582212206b82652d8c27472db6262f688ca170ab3f6066696bd697108a086b28cfcda75464736f6c63430007060033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100405760003560e01c80633d182f0f14610045578063817a2623146100e5575b600080fd5b6100cf600480360360c081101561005b57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803590602001909291908035906020019092919050505061019a565b6040518082815260200191505060405180910390f35b610179600480360360e08110156100fb57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291908035906020019092919080359060200190929190803590602001909291905050506101a6565b6040518082600381111561018957fe5b815260200191505060405180910390f35b60009695505050505050565b60006001905097965050505050505056fea26469706673582212206b82652d8c27472db6262f688ca170ab3f6066696bd697108a086b28cfcda75464736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "2567:1016:13:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "2567:1016:13:-:0;;;;;;;;",
+  "sourceMap": "666:1817:13:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "666:1817:13:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2250:231;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1450:304;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;2250:231;2449:4;2250:231;;;;;;;;:::o;1450:304::-;1666:25;1711:36;1704:43;;1450:304;;;;;;;;;:::o",
   "source": "// SPDX-License-Identifier: 0BSD\n\npragma solidity ^0.7.5;\n\n/**\n* @author Rastislav Budinsky\n* @dev library declaring all used enums at the moment in the DataTypes library\n*/\nlibrary DataTypes {\n    \n    enum TransactionType {NONE, DEPOSIT, WITHDRAW, BORROW, REPAY, LIQUIDATION, STAKE, UNSTAKE, STAKE_REWARD_FITCOIN, STAKE_REWARD_OTHER, STAKE_REDEEM, SLASH}\n\n    enum InterestMode {NONE, FIXED, VARIABLE}\n\n    enum BalanceType {NONE, DEFAULT, LENDING}\n\n    enum LiquidationType {NONE, BORROWABLE, UNBORROWABLE, LIQUIDATED}\n\n    uint public constant secondsPerYear = 31536000;\n}\n\n/**\n* @author Rastislav Budinsky\n* @dev utility library for calculating liquidations\n*/\nlibrary Liquidations {\n\n    /**\n    * @notice checks, if the liquidation treshold is exceeded\n    * @param asset the address of the borrowed asset\n    * @param amount1 the amount of the borrowed asset\n    * @param collateral the address of the underlying asset\n    * @param amount2 the amount of collateral\n    * @param liquidation the treshold before liquidation of this pair\n    * @param borrow the treshold before the borrow is denied\n    * @param decimals the decimal precision of liquidation and borrow tresholds\n    * @return LiquidationType   BORROWABLE: if the user is allowed to borrow\n    *                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated\n    *                           LIQUIDATED: the user should get liquidated\n    */\n    function checkLiquidated(\n        address asset,\n        uint amount1,\n        address collateral,\n        uint amount2,\n        uint liquidation,\n        uint borrow,\n        uint decimals\n    ) public pure returns(DataTypes.LiquidationType) {\n\n        return DataTypes.LiquidationType.BORROWABLE;\n    }\n\n    /**\n    * @notice calculates the liquidation price\n    * @param asset the address of the borrowed asset\n    * @param amount1 the amount of the borrowed asset\n    * @param collateral the address of the underlying asset\n    * @param amount2 the amount of the underlying asset\n    * @param liquidation the treshold before liquidation of this pair\n    * @param decimals the decimal precision of liquidation\n    * @return returns the price at which the underlying asset if liquidated\n    */\n    function getLiquidationPrice(\n        address asset,\n        uint amount1,\n        address collateral,\n        uint amount2,\n        uint liquidation,\n        uint decimals\n    ) public pure returns(uint) {\n\n        return 0;\n    }\n}\n\n/**\n* @author Rastislav Budinsky\n* @dev utility library for selecting interests*/\nlibrary Interests {\n\n    /**\n    * @dev selects the proper interest rate\n    * @param balanceType the type of balance\n    * @param interestMode the interest mode selected\n    * @param variableDeposit the variable deposit interest rate\n    * @param fixedDeposit the fixed deposit interest rate\n    * @param variableBorrow the variable borrow interest rate\n    * @param fixedBorrow the fixed borrow interest rate\n    * @return returns the interest rate accordingly\n    */\n    function selectInterestRate(\n        DataTypes.BalanceType balanceType,\n        DataTypes.InterestMode interestMode,\n        uint variableDeposit,\n        uint fixedDeposit,\n        uint variableBorrow,\n        uint fixedBorrow \n    ) internal pure returns(uint) {\n        if (balanceType == DataTypes.BalanceType.LENDING)\n        {\n            return interestMode == DataTypes.InterestMode.FIXED ? fixedBorrow : variableBorrow;\n        }\n\n        return interestMode == DataTypes.InterestMode.FIXED ? fixedDeposit : variableDeposit;\n    }\n\n}",
   "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/libraries/Utils.sol",
   "ast": {
@@ -2949,17 +3043,52 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-08-09T12:42:30.917Z",
+  "updatedAt": "2021-08-09T12:42:30.918Z",
   "devdoc": {
     "author": "Rastislav Budinsky",
-    "details": "utility library for selecting interests",
+    "details": "utility library for calculating liquidations",
     "kind": "dev",
-    "methods": {},
+    "methods": {
+      "checkLiquidated(address,uint256,address,uint256,uint256,uint256,uint256)": {
+        "params": {
+          "amount1": "the amount of the borrowed asset",
+          "amount2": "the amount of collateral",
+          "asset": "the address of the borrowed asset",
+          "borrow": "the treshold before the borrow is denied",
+          "collateral": "the address of the underlying asset",
+          "decimals": "the decimal precision of liquidation and borrow tresholds",
+          "liquidation": "the treshold before liquidation of this pair"
+        },
+        "returns": {
+          "_0": "LiquidationType   BORROWABLE: if the user is allowed to borrow                           UNBORROWABLE: the user is not allowed to borrow but not yet liquidated                           LIQUIDATED: the user should get liquidated"
+        }
+      },
+      "getLiquidationPrice(address,uint256,address,uint256,uint256,uint256)": {
+        "params": {
+          "amount1": "the amount of the borrowed asset",
+          "amount2": "the amount of the underlying asset",
+          "asset": "the address of the borrowed asset",
+          "collateral": "the address of the underlying asset",
+          "decimals": "the decimal precision of liquidation",
+          "liquidation": "the treshold before liquidation of this pair"
+        },
+        "returns": {
+          "_0": "returns the price at which the underlying asset if liquidated"
+        }
+      }
+    },
     "version": 1
   },
   "userdoc": {
     "kind": "user",
-    "methods": {},
+    "methods": {
+      "checkLiquidated(address,uint256,address,uint256,uint256,uint256,uint256)": {
+        "notice": "checks, if the liquidation treshold is exceeded"
+      },
+      "getLiquidationPrice(address,uint256,address,uint256,uint256,uint256)": {
+        "notice": "calculates the liquidation price"
+      }
+    },
     "version": 1
   }
 }

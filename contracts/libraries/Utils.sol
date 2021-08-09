@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: 0BSD
+
 pragma solidity ^0.7.5;
 
 /**
@@ -44,7 +46,7 @@ library Liquidations {
         uint liquidation,
         uint borrow,
         uint decimals
-    ) public view returns(DataTypes.LiquidationType) {
+    ) public pure returns(DataTypes.LiquidationType) {
 
         return DataTypes.LiquidationType.BORROWABLE;
     }
@@ -66,7 +68,7 @@ library Liquidations {
         uint amount2,
         uint liquidation,
         uint decimals
-    ) public view returns(uint) {
+    ) public pure returns(uint) {
 
         return 0;
     }
@@ -94,7 +96,7 @@ library Interests {
         uint fixedDeposit,
         uint variableBorrow,
         uint fixedBorrow 
-    ) internal view returns(uint) {
+    ) internal pure returns(uint) {
         if (balanceType == DataTypes.BalanceType.LENDING)
         {
             return interestMode == DataTypes.InterestMode.FIXED ? fixedBorrow : variableBorrow;

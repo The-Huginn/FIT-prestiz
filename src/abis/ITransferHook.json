@@ -25,7 +25,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"onTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol\":\"ITransferHook\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol\":{\"keccak256\":\"0xf34d5d2dc140e8ecb75a7c5360873f6f823ac6fe431d2bcc0ec31ccdfd9d5b08\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://55d678e027ce969f96e85c2864b9075b5542f93f4276e7643bdd9186b24f6d12\",\"dweb:/ipfs/QmRM6Mn8gdNVXzfGq628EBaJ6BMhUpx182H8BFCAD4WvNL\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"onTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/ITransferHook.sol\":\"ITransferHook\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/ITransferHook.sol\":{\"keccak256\":\"0xf34d5d2dc140e8ecb75a7c5360873f6f823ac6fe431d2bcc0ec31ccdfd9d5b08\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://55d678e027ce969f96e85c2864b9075b5542f93f4276e7643bdd9186b24f6d12\",\"dweb:/ipfs/QmRM6Mn8gdNVXzfGq628EBaJ6BMhUpx182H8BFCAD4WvNL\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -36,18 +36,18 @@
   "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity ^0.7.5;\n\ninterface ITransferHook {\n    function onTransfer(address from, address to, uint256 amount) external;\n}",
   "sourcePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
   "ast": {
-    "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
+    "absolutePath": "project:/contracts/interfaces/ITransferHook.sol",
     "exportedSymbols": {
       "ITransferHook": [
-        307
+        393
       ]
     },
-    "id": 308,
+    "id": 394,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 297,
+        "id": 383,
         "literals": [
           "solidity",
           "^",
@@ -55,7 +55,7 @@
           ".5"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:4"
+        "src": "37:23:7"
       },
       {
         "abstract": false,
@@ -63,33 +63,33 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 307,
+        "id": 393,
         "linearizedBaseContracts": [
-          307
+          393
         ],
         "name": "ITransferHook",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "4a393149",
-            "id": 306,
+            "id": 392,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "onTransfer",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 304,
+              "id": 390,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 299,
+                  "id": 385,
                   "mutability": "mutable",
                   "name": "from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "112:12:4",
+                  "scope": 392,
+                  "src": "112:12:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -97,10 +97,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 298,
+                    "id": 384,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "112:7:4",
+                    "src": "112:7:7",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -111,12 +111,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 301,
+                  "id": 387,
                   "mutability": "mutable",
                   "name": "to",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "126:10:4",
+                  "scope": 392,
+                  "src": "126:10:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -124,10 +124,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 300,
+                    "id": 386,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "126:7:4",
+                    "src": "126:7:7",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -138,12 +138,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 303,
+                  "id": 389,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 306,
-                  "src": "138:14:4",
+                  "scope": 392,
+                  "src": "138:14:7",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -151,10 +151,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 302,
+                    "id": 388,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "138:7:4",
+                    "src": "138:7:7",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -163,33 +163,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "111:42:4"
+              "src": "111:42:7"
             },
             "returnParameters": {
-              "id": 305,
+              "id": 391,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "162:0:4"
+              "src": "162:0:7"
             },
-            "scope": 307,
-            "src": "92:71:4",
+            "scope": 393,
+            "src": "92:71:7",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 308,
-        "src": "62:103:4"
+        "scope": 394,
+        "src": "62:103:7"
       }
     ],
-    "src": "37:128:4"
+    "src": "37:128:7"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/huginn/Desktop/Projects/FIT-prestiz/Token/contracts/interfaces/ITransferHook.sol",
+      "absolutePath": "project:/contracts/interfaces/ITransferHook.sol",
       "exportedSymbols": {
         "ITransferHook": [
-          307
+          393
         ]
       },
       "license": "agpl-3.0"
@@ -204,9 +204,9 @@
             ".5"
           ]
         },
-        "id": 297,
+        "id": 383,
         "name": "PragmaDirective",
-        "src": "37:23:4"
+        "src": "37:23:7"
       },
       {
         "attributes": {
@@ -220,10 +220,10 @@
           "contractKind": "interface",
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            307
+            393
           ],
           "name": "ITransferHook",
-          "scope": 308
+          "scope": 394
         },
         "children": [
           {
@@ -236,7 +236,7 @@
                 null
               ],
               "name": "onTransfer",
-              "scope": 307,
+              "scope": 393,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -249,7 +249,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "from",
-                      "scope": 306,
+                      "scope": 392,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -262,21 +262,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 298,
+                        "id": 384,
                         "name": "ElementaryTypeName",
-                        "src": "112:7:4"
+                        "src": "112:7:7"
                       }
                     ],
-                    "id": 299,
+                    "id": 385,
                     "name": "VariableDeclaration",
-                    "src": "112:12:4"
+                    "src": "112:12:7"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "to",
-                      "scope": 306,
+                      "scope": 392,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -289,21 +289,21 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 300,
+                        "id": 386,
                         "name": "ElementaryTypeName",
-                        "src": "126:7:4"
+                        "src": "126:7:7"
                       }
                     ],
-                    "id": 301,
+                    "id": 387,
                     "name": "VariableDeclaration",
-                    "src": "126:10:4"
+                    "src": "126:10:7"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "amount",
-                      "scope": 306,
+                      "scope": 392,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -315,19 +315,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 302,
+                        "id": 388,
                         "name": "ElementaryTypeName",
-                        "src": "138:7:4"
+                        "src": "138:7:7"
                       }
                     ],
-                    "id": 303,
+                    "id": 389,
                     "name": "VariableDeclaration",
-                    "src": "138:14:4"
+                    "src": "138:14:7"
                   }
                 ],
-                "id": 304,
+                "id": 390,
                 "name": "ParameterList",
-                "src": "111:42:4"
+                "src": "111:42:7"
               },
               {
                 "attributes": {
@@ -336,24 +336,24 @@
                   ]
                 },
                 "children": [],
-                "id": 305,
+                "id": 391,
                 "name": "ParameterList",
-                "src": "162:0:4"
+                "src": "162:0:7"
               }
             ],
-            "id": 306,
+            "id": 392,
             "name": "FunctionDefinition",
-            "src": "92:71:4"
+            "src": "92:71:7"
           }
         ],
-        "id": 307,
+        "id": 393,
         "name": "ContractDefinition",
-        "src": "62:103:4"
+        "src": "62:103:7"
       }
     ],
-    "id": 308,
+    "id": 394,
     "name": "SourceUnit",
-    "src": "37:128:4"
+    "src": "37:128:7"
   },
   "compiler": {
     "name": "solc",
@@ -361,7 +361,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-04T10:59:09.836Z",
+  "updatedAt": "2021-08-09T12:42:30.884Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

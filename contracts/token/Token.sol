@@ -31,13 +31,13 @@ contract Token is ERC20 {
     * @param _ico the address of the ICO tokens are sent to
     * @param _protocol the address of the protocol tokens are sent to
     */
-    constructor(address _team, address _ico, address _protocol) ERC20(NAME, SYMBOL){
+    constructor(address _team, address _ico, address _protocol) ERC20(NAME, SYMBOL) public{
         _mint(_team, TEAM_AMOUNT);
         _mint(_ico, ICO_AMOUNT);
         _mint(_protocol, PROTOCOL_AMOUNT);
     }
     
-    function maxSupply() public view returns(uint) {
+    function maxSupply() public pure returns(uint) {
         return _maxSupply;
     }
 
